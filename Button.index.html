@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Telegram WebApp Example</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        button {
+            margin: 15px;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            border: none;
+            background-color: #0088cc;
+            color: white;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #006699;
+        }
+    </style>
+</head>
+<body>
+    <h2>Выберите действие</h2>
+    <button id="sendBtn">Отправить</button>
+    <button id="deliverBtn">Доставить</button>
+
+    <script>
+        const tg = window.Telegram.WebApp;
+
+        document.getElementById('sendBtn').addEventListener('click', () => {
+            tg.sendData("action:send");  // Надсилаємо дані боту
+        });
+
+        document.getElementById('deliverBtn').addEventListener('click', () => {
+            tg.sendData("action:deliver");  // Надсилаємо інші дані
+        });
+    </script>
+</body>
+</html>
